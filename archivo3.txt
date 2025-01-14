@@ -1,1 +1,123 @@
-COMANDO BÁSICOS EN GIT
+COMANDOS BÁSICOS EN GIT
+
+//Configuración de GIT
+git --version
+git config --global user.name "leididiel"
+git config --global user.email correo@gm.comm
+git config --global core.editor "code --wait"
+    ##La terminal se queda esperando hasta que se cierre el editor de texto
+git config --global -e
+git config --global core.autocrlf true 
+    ##true para windows y input para Mac
+git config -h
+
+git code . 
+    ##abre el editor de texto
+
+//Comando básicos bash
+ls 
+    #lista los elementos
+pwd 
+    #para saber en qué directorio se está
+cd 
+    #para moverser a un carpeta
+cd ..
+    #para devolverse uno más atrás en la jerarquía
+mkadir
+    #crear un nuevo directorio
+
+
+//inicializando repositorio
+git init 
+    #para inicializar un nuevo repositorio
+    #se crea automáticamente el archivo .git
+ls -a 
+    #se muestran todos los elementos así estén ocultos
+
+
+//Flujo de trabajo
+##computador, stage, commit, server
+git add nombredelarchivo
+git add . 
+    ##se agregan todos los archivos
+git add .txt
+    ## agregar todos los archivos con ese formato 
+
+//Commit en GIT
+git commit -m "mensaje descriptivo del proceso"
+git commit
+
+
+//eliminando archivos
+git rm nombredelarchivoconextencion
+
+
+//volver del stage y descartar cambios
+git restore --staged nombredelarchivoconextencion
+        ##elimina
+git restore nombredelarchivo
+        ##restura el archivo eliminando
+
+
+//mover o renombrar archivos
+mv archivo.txt archivo1.txt
+        ##cambia el nombre del archivo en este caso archivo.txt  a archivo1.txt
+
+git mv archivo.txt archivo1.txt
+        ##de una vez hace el cambio y lo envia a staged
+
+
+//ignorar archivos y directorios
+        ##usualmente en variables de entorno 
+        los archivos suelen llamarse .env
+
+        ##se puede crear un archivo .gitignore
+        en el cual se agregan los archivos que no se quieren compartir
+        o las rutas que se quieran ignorar como la carpeta node_modules/
+        
+        ##el archivo gitignore es elque se aplica commit
+
+                 
+//git status
+ git status
+ git status -s 
+    ## muestra más detalles
+    ## hay letras iniciales (roja o verde, la priimera n se ha agregado al satged)
+    ## la letra m es de modificar, la a es de agregar
+
+
+//visualizar cambios
+git diff
+git diff --satged
+        ##muestra todos los cambios que se encuentran en la etapa staged
+
+
+//visualizar el historial
+git log 
+git log --oneline
+        ##muestra el id de cada historial y más detalles
+
+//ramas en GIT
+git branch
+        ##muestra las ramas que hay
+git checkout -b nombrederma
+        ##crea una ramas
+        
+git checkout nombrederama
+        ##cambia de ramas
+
+cat nombredelarchivo
+        ##muestra el contenido
+
+git merge ramaobjetivo
+        ## para unir ramas se escribe desde 
+        la rama main la rama que se quiere traer
+
+//conectar con GIThub
+git remote add origin url
+git push -u origin main 
+        ##con menos u se crea la rama, con origen se doce donde y main es el nombre
+
+## crear rama en el repositorio
+git checkout -b nombrederama
+git push
